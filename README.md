@@ -24,11 +24,10 @@ In `src/app/services/common-http-service.ts file` need change API URL to your ow
 
 ## Branch with Blockchain Wallet API:
 
-```html
 https://github.com/sheremet/blockchain-wallet-api
-```
+
 
 ## Branch with Blockchain Node:
 
-```html
-https://github.com/sheremet/blockchain-node```
+
+https://github.com/sheremet/blockchain-node
