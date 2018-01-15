@@ -1,0 +1,21 @@
+.small-text{
+  font-size: 0.7rem;
+}
+
+.text-align-right{
+  text-align: right;
+}
+
+
+@media (min-width: 768px) {
+  .text-align-right{
+    text-align: right;
+  }
+}
+
+@media (max-width: 576px) {
+  .text-align-right{
+    text-align: left;
+  }
+}
+

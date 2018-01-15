@@ -1,0 +1,12 @@
+.send-coins-form-ctnr.hide {
+  display: none;
+}
+
+.send-coins-form-ctnr {
+  display: block;
+}
+
+.send-payment {
+  background-color: #1c7430;
+  color: #ffffff;
+}

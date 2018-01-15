@@ -1,0 +1,37 @@
+<div *ngIf="!loaded">{{ loadingMessage }}</div>
+<div *ngIf="loaded && formSavedMessage">
+  <div class="alert alert-success" role="alert">{{ formSavedMessage }}</div>
+</div>
+<div *ngIf="loaded && formErrorMessage">
+  <div class="alert alert-danger" role="alert">{{ formErrorMessage }}</div>
+</div>
+<div class="controller" *ngIf="loaded">
+  <div class="container">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)" novalidate>
+      <div class="container">
+        <app-form-control-field [formSubmitStatus]="formSubmitStatus" placeholder="Username"
+                                controlName="username"
+                                [form]="loginForm">
+        </app-form-control-field>
+        <app-form-control-field
+          [formSubmitStatus]="formSubmitStatus"
+          placeholder="Password"
+          controlName="password"
+          inputType="password"
+          [form]="loginForm">
+        </app-form-control-field>
+      </div>
+
+      <div class="container">
+        <div class="d-flex justify-content-sm-center">
+          <div class="m-2 text-center">
+            <input type="submit" class="btn btn-primary" value="Login">
+          </div>
+          <div class="m-2 text-center">
+            <input type="reset" (click)="reset()" class="btn btn-secondary" value="Reset form">
+          </div>
+        </div>
+      </div>
+
+    </form>
+  </div>

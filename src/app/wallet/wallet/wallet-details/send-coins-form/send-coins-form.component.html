@@ -1,0 +1,48 @@
+<div *ngIf="loaded && formSavedMessage">
+  <div class="alert alert-success" role="alert">{{ formSavedMessage }}</div>
+</div>
+<div *ngIf="loaded && formErrorMessage">
+  <div class="alert alert-danger" role="alert">{{ formErrorMessage }}</div>
+</div>
+<div *ngIf="loaded">
+  <form [formGroup]="sendCoinsForm" (ngSubmit)="onSubmit(sendCoinsForm.value)" novalidate>
+    <div>
+      <app-form-control-field [formSubmitStatus]="formSubmitStatus"
+                              placeholder="Send to another Wallet ID"
+                              controlName="receiverWalletId"
+                              [form]="sendCoinsForm">
+      </app-form-control-field>
+      <app-form-control-field
+        [formSubmitStatus]="formSubmitStatus"
+        placeholder="Amount"
+        controlName="amount"
+        inputType="number"
+        [form]="sendCoinsForm"
+        customErrorMessage="Must be integer larger or equal 1"
+      >
+      </app-form-control-field>
+      <app-form-control-field
+        [formSubmitStatus]="formSubmitStatus"
+        placeholder="Sender wallet ID"
+        controlName="senderWalletId"
+        [isHidden]="true"
+        [form]="sendCoinsForm"
+        customErrorMessage="Sender wallet ID is equal with receiver Wallet ID"
+      >
+      </app-form-control-field>
+    </div>
+
+    <div class="container">
+      <div class="d-flex justify-content-sm-center">
+        <div class="m-2 text-center">
+          <input type="submit" class="btn btn-primary" value="Send Payment">
+        </div>
+        <div class="m-2 text-center">
+          <input type="reset" (click)="reset()" class="btn btn-secondary" value="Reset form">
+        </div>
+      </div>
+    </div>
+
+  </form>
+</div>
+
