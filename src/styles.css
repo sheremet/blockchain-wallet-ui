@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+@import "assets/bootstrap.min.css";
+
+a {
+  color: #19b0e5;
+}
+
+.align-center{
+  text-align: center;
+}
+
+a:hover {
+  color: #178fbf;
+}

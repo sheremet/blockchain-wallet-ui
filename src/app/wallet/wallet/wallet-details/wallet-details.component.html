@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <app-back-button></app-back-button>
+    </div>
+    <h2>Wallet details</h2>
+    <div class="col">
+      <button class="btn btn-dark send-payment  float-right" (click)="toggleSendMoneyForm()">Send coins</button>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div *ngIf="!loaded">Loading...</div>
+  <div class="wallet-details" *ngIf="loaded">
+    <div class="user-info">
+
+      <app-two-col-row label="Wallet ID:" [val]="wallet.walletId"></app-two-col-row>
+      <app-two-col-row label="Label:" [val]="wallet.label"></app-two-col-row>
+      <app-two-col-row label="Address:" [val]="wallet.address"></app-two-col-row>
+      <app-two-col-row label="Balance:" [val]="balance"></app-two-col-row>
+
+      <div class="send-coins-form-ctnr" [ngClass]="{hide: toggleSendCoinsStatus === false}">
+        <app-send-coins-form [balance]="balance" [walletId]="wallet.walletId"></app-send-coins-form>
+      </div>
+    </div>
+    <app-transactions [address]="wallet.address"></app-transactions>
+  </div>
+</div>

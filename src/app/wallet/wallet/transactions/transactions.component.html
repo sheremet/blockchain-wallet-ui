@@ -1,0 +1,28 @@
+<div *ngIf="!loaded">{{ loadingMessage }}</div>
+<div class="container" *ngIf="loaded">
+  <h2 class="text-align-center m-5">Transactions</h2>
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link" [ngClass]="{active:activeTab === 'i'}" #active (click)="toggleClass('i')">Incoming</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [ngClass]="{active:activeTab === 'o'}" (click)="toggleClass('o')">Outgoing</a>
+    </li>
+  </ul>
+  <div *ngIf="activeTab === 'i'" class="internal-cnt">
+    <div class="m-5" *ngIf="!transactions.to.length">No Incoming transactions</div>
+    <ul class="list-group" *ngIf="transactions.to.length">
+      <li *ngFor="let trx of transactions.to" class="list-group-item">
+        <app-transaction-row [transaction]="trx" ngForTrackBy="trx.txId"></app-transaction-row>
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="activeTab === 'o'" class="internal-cnt">
+    <div class="m-5" *ngIf="!transactions.from.length">No Outgoing transactions</div>
+    <ul class="list-group" *ngIf="transactions.from.length">
+      <li *ngFor="let trx of transactions.from" class="list-group-item">
+        <app-transaction-row [transaction]="trx" ngForTrackBy="trx.txId"></app-transaction-row>
+      </li>
+    </ul>
+  </div>
+</div>

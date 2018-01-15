@@ -1,0 +1,33 @@
+<div class="form-group-ctnr">
+  <div class="form-group row" [formGroup]="form">
+    <label for="{{controlName}}" class="text-align-right col-sm-5 col-form-label col-form-label-sm font-weight-bold">
+      {{ !isHidden ? placeholder+':': '' }}
+    </label>
+    <div class="col-sm-7">
+      <input
+        id="{{controlName}}"
+        type="{{inputType}}"
+        class="form-control form-control-sm border border-secondary"
+        [ngClass]="{'border-success': control().touched && control().valid, 'border border-danger': formSubmitStatus && control().invalid}"
+        [name]="controlName"
+        hidden="{{isHidden}}"
+        placeholder="{{placeholder}}"
+        formControlName="{{controlName}}"
+      >
+      <div *ngIf="infoMessage" class="text-info small-text">{{ infoMessage }}</div>
+      <div *ngIf="formSubmitStatus">
+        <span *ngIf="control().hasError('pattern')"
+              class="text-danger small-text">{{ customErrorMessage ? customErrorMessage : 'Invalid '+ placeholder }}. </span>
+        <span *ngIf="control().hasError('minlength')" class="text-danger small-text">Please set value with min {{ control().getError('minlength').requiredLength }} characters. </span>
+        <span *ngIf="control().hasError('maxlength')" class="text-danger small-text">Please set value with max {{ control().getError('maxlength').requiredLength }} characters. </span>
+        <span *ngIf="control().hasError('required')"
+              class="text-danger small-text">This value mandatory. </span>
+        <span *ngIf="control().hasError('matchOther')"
+              class="text-danger small-text">{{ customErrorMessage ? customErrorMessage: placeholder+' not match' }}</span>
+        <span *ngIf="control().hasError('serverError')" class="text-danger small-text">
+         {{ control().getError('serverError') }}
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

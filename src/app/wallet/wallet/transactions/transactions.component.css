@@ -1,0 +1,42 @@
+
+.text-align-center {
+  text-align: center;
+}
+
+.nav-link:hover {
+  cursor: pointer;
+  border-bottom: none;
+}
+
+.internal-cnt {
+  padding: 15px 0;
+}
+
+.nav-tabs a {
+  color: #007bff;
+}
+
+.nav-tabs a.active {
+  border-bottom: #ffffff 1px solid;
+  position: relative;
+  z-index: 10;
+  margin-top: -5px;
+  padding-top: 15px;
+  color: #495057;
+}
+
+.nav-tabs li:first-child a {
+  margin-left: 0;
+}
+
+.nav-tabs li:last-child a {
+  margin-right: 0;
+}
+
+.nav-tabs a {
+  padding: 10px 50px;
+  font-size: 1.2rem;
+  border: 1px #dedede solid;
+  border-radius: 15px 15px 0 0;
+  margin: 0 -5px;
+}

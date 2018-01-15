@@ -1,0 +1,31 @@
+<div class="container" *ngIf="!loaded">Loading...</div>
+<div class="container" *ngIf="loaded && wallets.length">
+  <div class="row">
+    <div class="col">
+      <app-back-button></app-back-button>
+    </div>
+    <div class="col">
+      <h2>Wallets:</h2>
+    </div>
+    <div class="col">
+      <button [routerLink]="'./create'" class="btn btn-primary float-right">Create</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <app-wallets-list [wallets]="wallets"></app-wallets-list>
+    </div>
+  </div>
+</div>
+<div class="container" *ngIf="loaded && !wallets.length">
+  <div class="row">
+    <div class="col">
+      <app-back-button></app-back-button>
+    </div>
+    <h2>Create new wallet</h2>
+    <div class="col">
+      <button [routerLink]="'./create'" class="btn btn-primary float-right">Create</button>
+    </div>
+  </div>
+</div>
+
